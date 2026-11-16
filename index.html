@@ -1072,7 +1072,7 @@
             let mmDisplay = measuredMM ? ` (${measuredMM})` : ' (Заагаагүй)';
             let totalPrice = currentPrice + deliveryFee;
 
-            const summaryHTML = `
+           const summaryHTML = `
                 📌 <b>Загвар:</b> ${selectedModel}<br>
                 🎨 <b>Өнгө:</b> ${selectedColor}<br>
                 📏 <b>Размер:</b> EU ${selectedSize}${mmDisplay}<br>
@@ -1082,8 +1082,12 @@
                 👤 <b>Захиалагч:</b> ${name}<br>
                 📞 <b>Утас:</b> ${phone}<br>
                 📍 <b>Хаяг:</b> ${address}<br><br>
-                💡 <span style="color:var(--accent);">Шилжүүлэг хийхдээ гүйлгээний утга дээр УТАСНЫ ДУГААРАА бичнэ үү!</span>
+                💡 <span style="color:var(--accent);">Шилжүүлэг хийхдээ гүйлгээний утга дээр УТАСНЫ ДУГААРАА бичнэ үү!</span><br><br>
+                ⏳ <span style="font-size: 12px; color: #666666;">Захиалга баталгаажсанаас хойш 7–10 хоногт урлагдах ба хүргэлтээр олгох үед системээс олгох 4 оронтой кодоор баталгаажина.</span>
             `;
+            document.getElementById('modal-summary-text').innerHTML = summaryHTML;
+            document.getElementById('order-modal').style.display = 'flex';
+        }
             document.getElementById('modal-summary-text').innerHTML = summaryHTML;
             document.getElementById('order-modal').style.display = 'flex';
         }
@@ -1092,7 +1096,7 @@
             document.getElementById('order-modal').style.display = 'none';
         }
 
-        function confirmAndSendOrder() {
+      function confirmAndSendOrder() {
             closeModal();
             const name = document.getElementById('cust-name').value;
             const phone = document.getElementById('cust-phone').value;
@@ -1107,6 +1111,9 @@
             let totalPrice = currentPrice + deliveryFee;
             let mmDisplay = measuredMM ? ` (${measuredMM})` : '';
 
+            // 1. 4 оронтой санамсаргүй баталгаажуулах код үүсгэх
+            const deliveryCode = Math.floor(1000 + Math.random() * 9000);
+
             const telegramMessage = `🛍 *ШИНЭ ЗАХИАЛГА ИРЛЭЭ!*\n\n` +
                                     `👠 *Загвар:* ${selectedModel}\n` +
                                     `🎨 *Өнгө:* ${selectedColor}\n` +
@@ -1117,13 +1124,13 @@
                                     `👤 *Захиалагч:* ${name}\n` +
                                     `📞 *Утас:* ${phone}\n` +
                                     `📍 *Хаяг:* ${address}\n` +
-                                    `💡 *Гүйлгээний утга:* ${phone}`;
+                                    `💡 *Гүйлгээний утга:* ${phone}\n` +
+                                    `🔑 *Баталгаажуулах код:* ${deliveryCode}`;
 
             fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(telegramMessage)}&parse_mode=Markdown`)
             .then(res => console.log('Telegram success'))
             .catch(err => console.log('Telegram err:', err));
 
-            // ⚠️ ЭНЭ ХЭСЭГТ ӨӨРИЙН GOOGLE SCRIPT WEB APP URL-АА ЗААВАЛ ТАВИНА УУ!
             const scriptURL = 'https://script.google.com/macros/s/AKfycbwNer2ceOnolKIOrpq_a83oGrXka_tRPxa1-277ZD-IS3zGNTKbcAwkKNSs4OVCqcuIZQ/exec';
             
             const formData = new FormData();
@@ -1135,15 +1142,16 @@
             formData.append('Phone', phone);
             formData.append('Address', address);
             formData.append('Price', totalPrice.toLocaleString() + ' ₮ (Хүргэлттэй)');
+            formData.append('DeliveryCode', deliveryCode); // <-- Google Sheets рүү 4 оронтой код дамжуулах
 
             fetch(scriptURL, { method: 'POST', body: formData })
                 .then(response => {
-                    alert('Захиалга амжилттай баталгаажиж бүртгэгдлээ!');
+                    alert(`Захиалга амжилттай баталгаажиж бүртгэгдлээ!\n\n🔑 Хүргэлт баталгаажуулах код: ${deliveryCode}\n(Энэ кодыг хэрэглэгчид болон өөртөө хадгалж аваарай)`);
                     btn.disabled = false;
                     btn.innerText = 'Захиалах';
                 })
                 .catch(error => {
-                    alert('Захиалга амжилттай илгээгдлээ!');
+                    alert(`Захиалга амжилттай илгээгдлээ!\n\n🔑 Хүргэлт баталгаажуулах код: ${deliveryCode}\n(Энэ кодыг хэрэглэгчид болон өөртөө хадгалж аваарай)`);
                     btn.disabled = false;
                     btn.innerText = 'Захиалах';
                 });
