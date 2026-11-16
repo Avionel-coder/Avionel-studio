@@ -643,13 +643,13 @@
         </header>
 
         <div class="stage-color-bar">
-            <button class="stage-color-btn" onclick="selectColorFromStage(this, 'Хар (Classic Black)', 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80', 480000, 'Classic Black Slouch')">
+            <button class="stage-color-btn" onclick="selectColorFromStage(this, 'Хар (Classic Black)', 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80')">
                 <span class="color-dot" style="background:#000;"></span> Хар
             </button>
-            <button class="stage-color-btn" onclick="selectColorFromStage(this, 'Бор (Deep Burgundy)', 'https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?auto=format&fit=crop&w=800&q=80', 510000, 'Burgundy Heritage Boot')">
+            <button class="stage-color-btn" onclick="selectColorFromStage(this, 'Бор (Deep Burgundy)', 'https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?auto=format&fit=crop&w=800&q=80')">
                 <span class="color-dot" style="background:#4a1521;"></span> Бор
             </button>
-            <button class="stage-color-btn active" onclick="selectColorFromStage(this, 'Бэйж (Ivory Cream)', 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80', 490000, 'Ivory Cream Luxe Boot')">
+            <button class="stage-color-btn active" onclick="selectColorFromStage(this, 'Бэйж (Ivory Cream)', 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80')">
                 <span class="color-dot" style="background:#e8e3d5;"></span> Бэйж
             </button>
         </div>
@@ -858,7 +858,7 @@
     </footer>
 
     <script>
-        // Арын хөвдөг оддын анимаци (Particle Canvas)
+        // Арын хөвдөг оддын анимаци
         const canvas = document.getElementById('particle-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
@@ -905,18 +905,11 @@
         const deliveryFee = 8000;
         let measuredMM = '';
 
-        function selectColorFromStage(btn, colorName, imgSrc, price, modelName) {
+        // Зөвхөн зураг болон өнгө солих (Загвар, үнэ өөрчлөгдөхгүй)
+        function selectColorFromStage(btn, colorName, imgSrc) {
             document.querySelectorAll('.stage-color-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             document.getElementById('main-product-img').src = imgSrc;
-            if (price) {
-                currentPrice = price;
-                document.getElementById('main-price-display').innerText = price.toLocaleString() + ' ₮';
-            }
-            if (modelName) {
-                selectedModel = modelName;
-                document.getElementById('selected-model-name').value = modelName;
-            }
             syncColorSelection(colorName);
         }
 
@@ -1026,7 +1019,7 @@
             let totalPrice = currentPrice + deliveryFee;
             let mmDisplay = measuredMM ? ` (${measuredMM})` : '';
 
-            // 4 оронтой санамсаргүй баталгаажуулах код
+            // 4 оронтой код үүсгэх
             const deliveryCode = Math.floor(1000 + Math.random() * 9000);
 
             const telegramMessage = `🛍 *ШИНЭ ЗАХИАЛГА ИРЛЭЭ!*\n\n` +
