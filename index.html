@@ -465,8 +465,8 @@
 
         .size-grid {
             display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 4px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 6px;
         }
 
         .size-btn {
@@ -488,59 +488,12 @@
             font-weight: 700;
         }
 
-        .payment-options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        .pay-tab {
-            padding: 11px;
-            border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.12);
-            background: rgba(255,255,255,0.03);
-            color: var(--text-main);
-            font-size: 12px;
-            font-weight: 500;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-
-        .pay-tab.active {
-            border-color: var(--accent);
-            background: rgba(212, 175, 55, 0.15);
-            color: var(--accent);
-            font-weight: 600;
-        }
-
         .pay-panel {
-            display: none;
             background: rgba(10, 15, 26, 0.6);
             border: 1px solid rgba(212, 175, 55, 0.2);
             border-radius: 8px;
             padding: 14px;
-            text-align: center;
             margin-bottom: 12px;
-        }
-
-        .pay-panel.active {
-            display: block;
-        }
-
-        .qpay-qr-container {
-            width: 130px;
-            height: 130px;
-            background: #ffffff;
-            margin: 10px auto;
-            padding: 8px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .bank-details {
@@ -690,13 +643,13 @@
         </header>
 
         <div class="stage-color-bar">
-            <button class="stage-color-btn" onclick="selectColorFromStage(this, 'Хар (Classic Black)', 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80')">
+            <button class="stage-color-btn" onclick="selectColorFromStage(this, 'Хар (Classic Black)', 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80', 480000, 'Classic Black Slouch')">
                 <span class="color-dot" style="background:#000;"></span> Хар
             </button>
-            <button class="stage-color-btn" onclick="selectColorFromStage(this, 'Бор (Deep Burgundy)', 'https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?auto=format&fit=crop&w=800&q=80')">
+            <button class="stage-color-btn" onclick="selectColorFromStage(this, 'Бор (Deep Burgundy)', 'https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?auto=format&fit=crop&w=800&q=80', 510000, 'Burgundy Heritage Boot')">
                 <span class="color-dot" style="background:#4a1521;"></span> Бор
             </button>
-            <button class="stage-color-btn active" onclick="selectColorFromStage(this, 'Бэйж (Ivory Cream)', 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80')">
+            <button class="stage-color-btn active" onclick="selectColorFromStage(this, 'Бэйж (Ivory Cream)', 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80', 490000, 'Ivory Cream Luxe Boot')">
                 <span class="color-dot" style="background:#e8e3d5;"></span> Бэйж
             </button>
         </div>
@@ -704,7 +657,7 @@
         <div class="showcase-stage">
             <div class="image-wrapper">
                 <img id="main-product-img" src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80" alt="Avionel Boot" class="product-image">
-                <div class="image-price-overlay" id="main-price-display">510,000 ₮</div>
+                <div class="image-price-overlay" id="main-price-display">490,000 ₮</div>
             </div>
             
             <div class="hotspot-wrapper active" id="hs-pos-1">
@@ -749,19 +702,19 @@
         </div>
 
         <div class="gallery-thumbnails">
-            <div class="thumb-item" onclick="switchMainImage(this, 0, 480000, 'Classic Black Slouch')">
+            <div class="thumb-item" onclick="switchMainImage(this, 0, 480000, 'Classic Black Slouch', 'Хар (Classic Black)')">
                 <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80" alt="Thumb 1">
                 <span class="thumb-price-tag">480,000₮</span>
             </div>
-            <div class="thumb-item active" onclick="switchMainImage(this, 1, 510000, 'Burgundy Heritage Boot')">
+            <div class="thumb-item" onclick="switchMainImage(this, 1, 510000, 'Burgundy Heritage Boot', 'Бор (Deep Burgundy)')">
                 <img src="https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?auto=format&fit=crop&w=800&q=80" alt="Thumb 2">
                 <span class="thumb-price-tag">510,000₮</span>
             </div>
-            <div class="thumb-item" onclick="switchMainImage(this, 2, 490000, 'Ivory Cream Luxe Boot')">
+            <div class="thumb-item active" onclick="switchMainImage(this, 2, 490000, 'Ivory Cream Luxe Boot', 'Бэйж (Ivory Cream)')">
                 <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80" alt="Thumb 3">
                 <span class="thumb-price-tag">490,000₮</span>
             </div>
-            <div class="thumb-item" onclick="switchMainImage(this, 3, 520000, 'Custom Edition Boot')">
+            <div class="thumb-item" onclick="switchMainImage(this, 3, 520000, 'Custom Edition Boot', 'Бэйж (Ivory Cream)')">
                 <img src="https://images.unsplash.com/photo-1515347619252-60a4bf4fff4f?auto=format&fit=crop&w=800&q=80" alt="Thumb 4">
                 <span class="thumb-price-tag">520,000₮</span>
             </div>
@@ -820,13 +773,13 @@
             <div class="form-group">
                 <label class="form-label">1. Өнгө сонгох:</label>
                 <div class="color-selector">
-                    <div class="color-opt" onclick="syncColorSelection('Хар (Classic Black)')">
+                    <div class="color-opt" data-color="Хар (Classic Black)" onclick="syncColorSelection('Хар (Classic Black)')">
                         <span class="color-dot" style="background:#000;"></span> Хар
                     </div>
-                    <div class="color-opt" onclick="syncColorSelection('Бор (Deep Burgundy)')">
+                    <div class="color-opt" data-color="Бор (Deep Burgundy)" onclick="syncColorSelection('Бор (Deep Burgundy)')">
                         <span class="color-dot" style="background:#4a1521;"></span> Бор
                     </div>
-                    <div class="color-opt selected" onclick="syncColorSelection('Бэйж (Ivory Cream)')">
+                    <div class="color-opt selected" data-color="Бэйж (Ivory Cream)" onclick="syncColorSelection('Бэйж (Ivory Cream)')">
                         <span class="color-dot" style="background:#e8e3d5;"></span> Бэйж
                     </div>
                 </div>
@@ -856,32 +809,22 @@
             </div>
 
             <div class="form-group">
-                <label class="form-label">4. Төлбөрийн сонголт: <span style="font-size:10px; color:var(--accent);">(Хүргэлтийн төлбөр: 8,000₮)</span></label>
-                <div class="payment-options">
-                    <div class="pay-tab active" onclick="switchPayTab('bank')">Дансаар шилжүүлэх</div>
-                    <div class="pay-tab" onclick="switchPayTab('qpay')">QR Уншуулах</div>
-                </div>
-
-                <div id="pay-bank" class="pay-panel active">
+                <label class="form-label">4. Төлбөрийн мэдээлэл (Дансаар шилжүүлэх): <span style="font-size:10px; color:var(--accent);">(Хүргэлтийн төлбөр: 8,000₮)</span></label>
+                
+                <div class="pay-panel">
                     <div class="bank-details">
                         <div class="bank-row"><span class="bank-label">Банк:</span><span class="bank-val">Голомт банк</span></div>
                         <div class="bank-row"><span class="bank-label">Дансны дугаар:</span><span class="bank-val">1205138717</span></div>
                         <div class="bank-row"><span class="bank-label">Дансны нэр:</span><span class="bank-val">Г.Янжиндулам</span></div>
                         <div class="bank-row"><span class="bank-label">IBAN:</span><span class="bank-val">40001500</span></div>
-                        <div class="bank-row" style="border-bottom:none; margin-top:6px;"><span class="bank-label" style="color:var(--accent);">Анхааруулга:</span><span class="bank-val" style="color:var(--accent); font-size:10px;">Гүйлгээний утга дээр УТАCНЫ ДУГААРАА бичнэ үү!</span></div>
+                        <div class="bank-row" style="border-bottom:none; margin-top:6px;">
+                            <span class="bank-label" style="color:var(--accent);">Анхааруулга:</span>
+                            <span class="bank-val" style="color:var(--accent); font-size:10px;">Гүйлгээний утга дээр УТАСНЫ ДУГААРАА бичнэ үү!</span>
+                        </div>
                     </div>
-                </div>
-
-                <div id="pay-qpay" class="pay-panel">
-                    <div class="qpay-qr-container">
-                        <svg viewBox="0 0 100 100" width="100" height="100">
-                            <rect width="100" height="100" fill="#fff"/>
-                            <path d="M10 10h30v30H10zM60 10h30v30H60zM10 60h30v30H10z" fill="#000"/>
-                            <path d="M20 20h10v10H20zM70 20h10v10H70zM20 70h10v10H20z" fill="#fff"/>
-                        </svg>
-                    </div>
-                    <div style="font-size:11px; color:var(--text-muted); margin-bottom: 4px;">QR уншуулж төлөх үед:</div>
-                    <div style="font-size:11px; color:var(--accent); font-weight:bold;">⚠️ Гүйлгээний утга дээр Утасны дугаараа бичнэ үү!</div>
+                    <p style="font-size: 11px; color: var(--text-muted); margin-top: 10px; line-height: 1.5; text-align: left; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 8px;">
+                        * Захиалга баталгаажсанаас хойш 7–10 хоногийн дотор урлагдаж бэлэн болох ба хүргэлтээр олгох үед системээс олгосон 4 оронтой кодоор баталгаажина.
+                    </p>
                 </div>
             </div>
 
@@ -903,16 +846,19 @@
     <footer>
         <div class="footer-socials">
             <a href="https://www.instagram.com/avionel.atelier" target="_blank" class="footer-social-btn">
-                <svg class="social-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> Instagram
+                <svg class="social-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                Instagram
             </a>
             <a href="https://www.facebook.com/avionel.atelier" target="_blank" class="footer-social-btn">
-                <svg class="social-icon" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.5 5H18V0h-3.808C10.592 0 9 1.583 9 4.615V8z"/></svg> Facebook Page
+                <svg class="social-icon" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                Facebook
             </a>
         </div>
-        <p>&copy; 2026 AVIONEL STUDIO. All Rights Reserved.</p>
+        <div>© 2026 AVIONEL ATELIER. All Rights Reserved.</div>
     </footer>
 
     <script>
+        // Арын хөвдөг оддын анимаци (Particle Canvas)
         const canvas = document.getElementById('particle-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
@@ -924,155 +870,127 @@
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 1;
-                this.speedY = Math.random() * 0.5 + 0.1;
-                this.opacity = Math.random() * 0.5 + 0.2;
-            }
-            update() {
-                this.y -= this.speedY;
-                if (this.y < 0) {
-                    this.y = canvas.height;
-                    this.x = Math.random() * canvas.width;
-                }
-            }
-            draw() {
-                ctx.fillStyle = `rgba(212, 175, 55, ${this.opacity})`;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
+        for (let i = 0; i < 65; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 1.6 + 0.4,
+                speedY: Math.random() * 0.4 + 0.15,
+                alpha: Math.random() * 0.6 + 0.2
+            });
         }
-
-        for (let i = 0; i < 50; i++) particles.push(new Particle());
 
         function animateParticles() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => { p.update(); p.draw(); });
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(212, 175, 55, ${p.alpha})`;
+                ctx.fill();
+                p.y -= p.speedY;
+                if (p.y < 0) {
+                    p.y = canvas.height;
+                    p.x = Math.random() * canvas.width;
+                }
+            });
             requestAnimationFrame(animateParticles);
         }
         animateParticles();
 
-        let selectedSize = '39';
-        let selectedColor = 'Бэйж (Ivory Cream)';
+        // Сонголтын хувьсагчид
         let selectedModel = 'Ivory Cream Luxe Boot';
-        let currentPrice = 510000;
+        let selectedColor = 'Бэйж (Ivory Cream)';
+        let selectedSize = '39';
+        let currentPrice = 490000;
         const deliveryFee = 8000;
         let measuredMM = '';
 
-        function toggleHotspot(element) {
-            element.parentElement.classList.toggle('active');
+        function selectColorFromStage(btn, colorName, imgSrc, price, modelName) {
+            document.querySelectorAll('.stage-color-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById('main-product-img').src = imgSrc;
+            if (price) {
+                currentPrice = price;
+                document.getElementById('main-price-display').innerText = price.toLocaleString() + ' ₮';
+            }
+            if (modelName) {
+                selectedModel = modelName;
+                document.getElementById('selected-model-name').value = modelName;
+            }
+            syncColorSelection(colorName);
         }
 
-        function getEUSizeFromMM(mm) {
-            if (mm <= 225) return '35';
-            if (mm <= 230) return '36';
-            if (mm <= 235) return '37';
-            if (mm <= 245) return '38';
-            if (mm <= 250) return '39';
-            if (mm <= 255) return '40';
-            if (mm <= 265) return '41';
-            if (mm <= 270) return '42';
-            if (mm <= 280) return '43';
-            return '44';
+        function syncColorSelection(colorName) {
+            selectedColor = colorName;
+            document.querySelectorAll('.color-opt').forEach(opt => {
+                if (opt.getAttribute('data-color') === colorName) {
+                    opt.classList.add('selected');
+                } else {
+                    opt.classList.remove('selected');
+                }
+            });
         }
 
-        function selectSize(element, size) {
-            document.querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('selected'));
-            element.classList.add('selected');
+        function switchMainImage(thumb, index, price, modelName, colorName) {
+            document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+            const imgSrc = thumb.querySelector('img').src;
+            document.getElementById('main-product-img').src = imgSrc;
+            currentPrice = price;
+            document.getElementById('main-price-display').innerText = price.toLocaleString() + ' ₮';
+            selectedModel = modelName;
+            document.getElementById('selected-model-name').value = modelName;
+            if (colorName) syncColorSelection(colorName);
+        }
+
+        function toggleHotspot(dot) {
+            const wrapper = dot.parentElement;
+            const isActive = wrapper.classList.contains('active');
+            document.querySelectorAll('.hotspot-wrapper').forEach(w => w.classList.remove('active'));
+            if (!isActive) wrapper.classList.add('active');
+        }
+
+        function selectSize(btn, size) {
+            document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
             selectedSize = size;
         }
 
         function calculateEUSize() {
             const mm = parseFloat(document.getElementById('user-mm-input').value);
-            const resultBox = document.getElementById('calc-result');
-            if (mm) {
-                let eu = getEUSizeFromMM(mm);
-                measuredMM = mm + 'mm';
-                resultBox.innerText = `Таны хөлийн урт: ${mm} mm → Санал болгох размер: EU ${eu}`;
-                resultBox.style.display = 'block';
-
-                document.querySelectorAll('.size-btn').forEach(btn => {
-                    if (btn.innerText === eu) {
-                        selectSize(btn, eu);
-                    }
-                });
-            } else {
-                alert('Хөлийн урт mm утгаа оруулна уу!');
+            const resBox = document.getElementById('calc-result');
+            if (!mm || mm < 200 || mm > 310) {
+                resBox.style.display = 'block';
+                resBox.innerHTML = '⚠️ 215 - 285 мм хооронд зөв хэмжээ оруулна уу.';
+                return;
             }
-        }
+            measuredMM = mm + 'мм';
+            let eu = Math.round((mm + 10) / 6.67);
+            if (eu < 35) eu = 35;
+            if (eu > 44) eu = 44;
 
-        function selectColor(colorName, imgUrl) {
-            selectedColor = colorName;
-            document.getElementById('main-product-img').src = imgUrl;
-
-            document.querySelectorAll('.stage-color-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if(btn.innerText.includes(colorName.split(' ')[0])) {
-                    btn.classList.add('active');
-                }
+            resBox.style.display = 'block';
+            resBox.innerHTML = `✨ Танд тохирох хэмжээ: <b>EU ${eu}</b> (${mm} мм)`;
+            
+            document.querySelectorAll('.size-btn').forEach(btn => {
+                if (btn.innerText == eu) selectSize(btn, eu.toString());
             });
-
-            document.querySelectorAll('.color-opt').forEach(opt => {
-                opt.classList.remove('selected');
-                if(opt.innerText.includes(colorName.split(' ')[0])) {
-                    opt.classList.add('selected');
-                }
-            });
-        }
-
-        function selectColorFromStage(element, colorName, imgUrl) {
-            selectColor(colorName, imgUrl);
-        }
-
-        function syncColorSelection(colorName) {
-            let imgUrl = 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80';
-            if(colorName.includes('Хар')) {
-                imgUrl = 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80';
-            } else if(colorName.includes('Бор')) {
-                imgUrl = 'https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?auto=format&fit=crop&w=800&q=80';
-            }
-            selectColor(colorName, imgUrl);
-        }
-
-        function switchMainImage(element, index, price, modelName) {
-            document.querySelectorAll('.thumb-item').forEach(item => item.classList.remove('active'));
-            element.classList.add('active');
-            currentPrice = price;
-            document.getElementById('main-price-display').innerText = price.toLocaleString() + ' ₮';
-            document.getElementById('selected-model-name').value = modelName;
-            selectedModel = modelName;
-        }
-
-        function switchPayTab(type) {
-            document.querySelectorAll('.pay-tab').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.pay-panel').forEach(panel => panel.classList.remove('active'));
-            if (type === 'qpay') {
-                document.querySelectorAll('.pay-tab')[1].classList.add('active');
-                document.getElementById('pay-qpay').classList.add('active');
-            } else {
-                document.querySelectorAll('.pay-tab')[0].classList.add('active');
-                document.getElementById('pay-bank').classList.add('active');
-            }
         }
 
         function showOrderModal() {
-            const name = document.getElementById('cust-name').value;
-            const phone = document.getElementById('cust-phone').value;
-            const address = document.getElementById('cust-address').value;
+            const name = document.getElementById('cust-name').value.trim();
+            const phone = document.getElementById('cust-phone').value.trim();
+            const address = document.getElementById('cust-address').value.trim();
 
             if (!name || !phone || !address) {
-                alert('Нэр, утасны дугаар болон хүргэлтийн хаягаа бүрэн оруулна уу!');
+                alert('Захиалагчийн нэр, утас, хүргэлтийн хаягаа бүрэн оруулна уу!');
                 return;
             }
 
-            let mmDisplay = measuredMM ? ` (${measuredMM})` : ' (Заагаагүй)';
             let totalPrice = currentPrice + deliveryFee;
+            let mmDisplay = measuredMM ? ` (${measuredMM})` : '';
 
-           const summaryHTML = `
+            const summaryHTML = `
                 📌 <b>Загвар:</b> ${selectedModel}<br>
                 🎨 <b>Өнгө:</b> ${selectedColor}<br>
                 📏 <b>Размер:</b> EU ${selectedSize}${mmDisplay}<br>
@@ -1083,11 +1001,8 @@
                 📞 <b>Утас:</b> ${phone}<br>
                 📍 <b>Хаяг:</b> ${address}<br><br>
                 💡 <span style="color:var(--accent);">Шилжүүлэг хийхдээ гүйлгээний утга дээр УТАСНЫ ДУГААРАА бичнэ үү!</span><br><br>
-                ⏳ <span style="font-size: 12px; color: #666666;">Захиалга баталгаажсанаас хойш 7–10 хоногт урлагдах ба хүргэлтээр олгох үед системээс олгох 4 оронтой кодоор баталгаажина.</span>
+                ⏳ <span style="font-size: 11px; color: #b0aca5;">Захиалга баталгаажсанаас хойш 7–10 хоногт урлагдах ба хүргэлтээр олгох үед системээс олгох 4 оронтой кодоор баталгаажина.</span>
             `;
-            document.getElementById('modal-summary-text').innerHTML = summaryHTML;
-            document.getElementById('order-modal').style.display = 'flex';
-        }
             document.getElementById('modal-summary-text').innerHTML = summaryHTML;
             document.getElementById('order-modal').style.display = 'flex';
         }
@@ -1096,11 +1011,11 @@
             document.getElementById('order-modal').style.display = 'none';
         }
 
-      function confirmAndSendOrder() {
+        function confirmAndSendOrder() {
             closeModal();
-            const name = document.getElementById('cust-name').value;
-            const phone = document.getElementById('cust-phone').value;
-            const address = document.getElementById('cust-address').value;
+            const name = document.getElementById('cust-name').value.trim();
+            const phone = document.getElementById('cust-phone').value.trim();
+            const address = document.getElementById('cust-address').value.trim();
             const btn = document.getElementById('submit-btn');
 
             btn.disabled = true;
@@ -1111,7 +1026,7 @@
             let totalPrice = currentPrice + deliveryFee;
             let mmDisplay = measuredMM ? ` (${measuredMM})` : '';
 
-            // 1. 4 оронтой санамсаргүй баталгаажуулах код үүсгэх
+            // 4 оронтой санамсаргүй баталгаажуулах код
             const deliveryCode = Math.floor(1000 + Math.random() * 9000);
 
             const telegramMessage = `🛍 *ШИНЭ ЗАХИАЛГА ИРЛЭЭ!*\n\n` +
@@ -1142,16 +1057,16 @@
             formData.append('Phone', phone);
             formData.append('Address', address);
             formData.append('Price', totalPrice.toLocaleString() + ' ₮ (Хүргэлттэй)');
-            formData.append('DeliveryCode', deliveryCode); // <-- Google Sheets рүү 4 оронтой код дамжуулах
+            formData.append('DeliveryCode', deliveryCode);
 
             fetch(scriptURL, { method: 'POST', body: formData })
                 .then(response => {
-                    alert(`Захиалга амжилттай баталгаажиж бүртгэгдлээ!\n\n🔑 Хүргэлт баталгаажуулах код: ${deliveryCode}\n(Энэ кодыг хэрэглэгчид болон өөртөө хадгалж аваарай)`);
+                    alert(`Захиалга амжилттай баталгаажиж бүртгэгдлээ!\n\n🔑 Хүргэлт баталгаажуулах код: ${deliveryCode}\n(Энэ кодыг хадгалж аваад хүргэлт очиход хэлж өгнө үү)`);
                     btn.disabled = false;
                     btn.innerText = 'Захиалах';
                 })
                 .catch(error => {
-                    alert(`Захиалга амжилттай илгээгдлээ!\n\n🔑 Хүргэлт баталгаажуулах код: ${deliveryCode}\n(Энэ кодыг хэрэглэгчид болон өөртөө хадгалж аваарай)`);
+                    alert(`Захиалга амжилттай илгээгдлээ!\n\n🔑 Хүргэлт баталгаажуулах код: ${deliveryCode}\n(Энэ кодыг хадгалж аваад хүргэлт очиход хэлж өгнө үү)`);
                     btn.disabled = false;
                     btn.innerText = 'Захиалах';
                 });
